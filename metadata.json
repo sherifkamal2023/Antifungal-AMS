@@ -1,0 +1,6 @@
+{
+  "name": "FungiSteward-AI",
+  "description": "Evidence-grounded antifungal antimicrobial-stewardship clinical-pharmacy copilot, decision-support, TDM calculator, and interactive case teaching suite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

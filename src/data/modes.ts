@@ -1,0 +1,82 @@
+import { ModeInfo } from "../types";
+
+export const DEFAULT_INSTITUTIONAL_CONFIG: import("../types").InstitutionalConfig = {
+  institutionName: "University Medical Center",
+  unitType: "Medical-Surgical ICU & Hematology",
+  candidemiaFirstLine: "Anidulafungin 200mg load then 100mg daily",
+  aspergillosisFirstLine: "Voriconazole IV/PO with TDM",
+  localFluconazoleResistanceGlabrata: 14,
+  localCandidaAurisPrevalence: "Sporadic",
+  voriconazoleTargetRange: "1.0 - 5.5 mg/L (Trough; severe/CNS 2.0-5.5 mg/L)",
+  posaconazoleTargetRange: ">0.7 mg/L (Prophylaxis); >1.25 mg/L (Treatment)",
+  galactomannanTurnaroundHours: 24,
+  bdgTurnaroundHours: 48,
+  customNotes: "Liposomal Amphotericin B requires ID approval; Voriconazole TDM protocol ordered on Day 4-5.",
+};
+
+export const STEWARDSHIP_MODES: ModeInfo[] = [
+  {
+    id: "/case",
+    name: "Full Case Review",
+    shortDesc: "Comprehensive patient-specific AMS assessment, dosing, and SBAR",
+    iconName: "Stethoscope",
+    badgeColor: "bg-teal-500/15 text-teal-700 border-teal-200 dark:border-teal-800 dark:text-teal-300",
+    samplePrompt: "/case Review this patient: 65yo M in ICU with persistent fever, CVC in place, new yeast in blood culture...",
+  },
+  {
+    id: "/timeout",
+    name: "48–72h Time-out",
+    shortDesc: "Rapid stop, narrow, step-down, or de-escalation evaluation",
+    iconName: "Clock",
+    badgeColor: "bg-amber-500/15 text-amber-700 border-amber-200 dark:border-amber-800 dark:text-amber-300",
+    samplePrompt: "/timeout 48h review for patient on Caspofungin 50mg daily; blood cultures negative at 48h, sputum Candida...",
+  },
+  {
+    id: "/candidemia",
+    name: "Candidemia Bundle",
+    shortDesc: "Clearance blood cultures, CVC removal, eye exam & 14-day count",
+    iconName: "Droplets",
+    badgeColor: "bg-rose-500/15 text-rose-700 border-rose-200 dark:border-rose-800 dark:text-rose-300",
+    samplePrompt: "/candidemia Review candidemia bundle for patient with Candida albicans (MIC 0.5) in 2 blood bottles...",
+  },
+  {
+    id: "/mold",
+    name: "Mould & Mucor",
+    shortDesc: "Aspergillosis, Mucorales emergency, galactomannan & CT halo",
+    iconName: "ShieldAlert",
+    badgeColor: "bg-purple-500/15 text-purple-700 border-purple-200 dark:border-purple-800 dark:text-purple-300",
+    samplePrompt: "/mold Patient with AML neutropenia, new pulmonary nodule, serum galactomannan 1.6, starting voriconazole...",
+  },
+  {
+    id: "/tdm",
+    name: "TDM & Toxicity",
+    shortDesc: "Voriconazole, Posaconazole targets, non-linear PK & drug interactions",
+    iconName: "Activity",
+    badgeColor: "bg-blue-500/15 text-blue-700 border-blue-200 dark:border-blue-800 dark:text-blue-300",
+    samplePrompt: "/tdm Voriconazole trough is 5.8 mg/L on 300mg PO BID; patient experiencing photopsia and elevated tacrolimus...",
+  },
+  {
+    id: "/deck",
+    name: "Teaching Deck",
+    shortDesc: "10-slide unfolding case presentation with questions & revealable answers",
+    iconName: "Presentation",
+    badgeColor: "bg-indigo-500/15 text-indigo-700 border-indigo-200 dark:border-indigo-800 dark:text-indigo-300",
+    samplePrompt: "/deck Generate an interactive 10-slide teaching case on Candida auris outbreak & resistance for pharmacy residents...",
+  },
+  {
+    id: "/audit",
+    name: "AMS Audit & KPIs",
+    shortDesc: "DOT/1000 PD, guideline concordance, bundle adherence & dashboard metrics",
+    iconName: "BarChart3",
+    badgeColor: "bg-emerald-500/15 text-emerald-700 border-emerald-200 dark:border-emerald-800 dark:text-emerald-300",
+    samplePrompt: "/audit Design a monthly antifungal stewardship KPI scorecard and candidemia bundle audit sheet...",
+  },
+  {
+    id: "/policy",
+    name: "Pathway Drafting",
+    shortDesc: "Institutional clinical pathways, formulary restriction & containment rules",
+    iconName: "FileText",
+    badgeColor: "bg-cyan-500/15 text-cyan-700 border-cyan-200 dark:border-cyan-800 dark:text-cyan-300",
+    samplePrompt: "/policy Draft an institutional clinical pathway for empiric antifungal therapy in non-neutropenic ICU patients...",
+  },
+];
